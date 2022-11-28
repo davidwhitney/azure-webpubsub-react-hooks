@@ -7,7 +7,6 @@ Using this package you can:
 - Interact with Azure WebPubSub groups using a react hook.
 - Send messages via Azure WebPubSub using the group instances the hooks provide
 - Get notifications of user presence on groups
-- Send presence updates
 
 The hooks provide a simplified syntax for interacting with Azure WebPubSub, and manage the lifecycle of the Azure WebPubSub SDK instances for you taking care to subscribe and unsubscribe to groups and events when your react components re-render.
 
