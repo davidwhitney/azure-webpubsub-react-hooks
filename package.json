@@ -1,0 +1,62 @@
+{
+  "name": "azure-web-pub-sub-hooks",
+  "version": "2.0.10",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "cd api && npm install",
+    "start": "run-p dev:api dev:server",
+    "dev:api": "npm run start --prefix api",
+    "dev:server": "npx vite serve",
+    "test": "vitest run",
+    "ci": "npm run test && npm run build",
+    "build": "npm run build:cjs && npm run build:mjs",
+    "build:mjs": "tsc --project tsconfig.mjs.json && cp res/package.mjs.json dist/mjs/package.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json && cp res/package.cjs.json dist/cjs/package.json"
+  },
+  "exports": {
+    "import": "./dist/mjs/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ably-labs/react-hooks.git"
+  },
+  "author": "Jo Franchetti, David Whitney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ably-labs/react-hooks/issues"
+  },
+  "homepage": "https://github.com/ably-labs/react-hooks#readme",
+  "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "jsdom": "^20.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": ">=18.1.0",
+    "react-dom": ">=18.1.0",
+    "typescript": ">=4.4.4",
+    "vite": "^3.2.4",
+    "vitest": "^0.25.3"
+  },
+  "dependencies": {
+    "@azure/web-pubsub": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.1.0",
+    "react-dom": ">=18.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ably",
+    "react",
+    "websockets",
+    "realtime",
+    "hooks",
+    "react hooks"
+  ]
+}
